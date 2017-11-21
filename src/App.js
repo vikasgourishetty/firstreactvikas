@@ -18,9 +18,18 @@ class App extends Component {
     this.setState({persons : [
                               {name: newName, age: 28},
                               {name: 'P2', age: 29},
-                              {name: 'P3', age: 27}
+                              {name: 'P3', age: 26}
                              ]
                   });
+  }
+
+  nameChangeHandler = (event) => {
+    this.setState({persons : [
+                              {name: 'P1', age: 28},
+                              {name: event.target.value, age: 29},
+                              {name: 'P3', age: 26}
+                            ]
+                });
   }
 
   render() {
@@ -32,7 +41,8 @@ class App extends Component {
                 age={this.state.persons[0].age}/>
         <Person name={this.state.persons[1].name} 
                  age={this.state.persons[1].age}
-                 click={this.switchNameHandler.bind(this,'Person 1')}> Text Between Opening and closing tag </Person>
+                 click={this.switchNameHandler.bind(this,'Person 1')}
+                 change={this.nameChangeHandler}> Text Between Opening and closing tag </Person>
         <Person name={this.state.persons[2].name} 
                  age={this.state.persons[2].age}/>
       </div>

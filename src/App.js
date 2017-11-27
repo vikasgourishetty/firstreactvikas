@@ -41,6 +41,22 @@ class App extends Component {
 
   render() {
 
+    let persons = null;
+    if (this.state.showPersons) {
+      persons = (
+          <div>
+            <Person name={this.state.persons[0].name} 
+                    age={this.state.persons[0].age}/>
+            <Person name={this.state.persons[1].name} 
+                    age={this.state.persons[1].age}
+                    click={this.switchNameHandler.bind(this,'Person 1')}
+                    change={this.nameChangeHandler}> Text Between Opening and closing tag </Person>
+            <Person name={this.state.persons[2].name} 
+                    age={this.state.persons[2].age}/>
+          </div> 
+      );
+    }
+
     const style = {
       backgroundColor: 'white',
       font: 'inherit',
@@ -53,19 +69,7 @@ class App extends Component {
       <div className="App">
         <h1> My React App</h1>
         <button style={style} onClick={this.togglePersonsHandler} > Switch/Toggle </button>
-        { 
-          this.state.showPersons ?
-            <div>
-              <Person name={this.state.persons[0].name} 
-                      age={this.state.persons[0].age}/>
-              <Person name={this.state.persons[1].name} 
-                      age={this.state.persons[1].age}
-                      click={this.switchNameHandler.bind(this,'Person 1')}
-                      change={this.nameChangeHandler}> Text Between Opening and closing tag </Person>
-              <Person name={this.state.persons[2].name} 
-                      age={this.state.persons[2].age}/>
-            </div> : null
-        }        
+        {persons}
       </div>
     );
 

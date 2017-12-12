@@ -57,6 +57,16 @@ class App extends Component {
 
   render() {
 
+
+    const style = {
+      backgroundColor: 'green',
+      color:'white',
+      font: 'inherit',
+      border: '1px solid blue',
+      padding: '8px',
+      cursor: 'pointer'
+    };
+
     let persons = null;
     if (this.state.showPersons) {
       persons = (
@@ -82,14 +92,9 @@ class App extends Component {
                     change={this.nameChangeHandler}> Text Between Opening and closing tag </Person>
             <Person name={this.state.persons[2].name} 
                     age={this.state.persons[2].age}/> */
-    }
 
-    const style = {
-      backgroundColor: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer'
+      // Set style dynamically
+      style.backgroundColor = 'red';
     }
 
     return (
